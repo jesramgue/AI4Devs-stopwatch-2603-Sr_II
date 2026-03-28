@@ -1,0 +1,284 @@
+/* ================================================================
+   RESET & BASE
+================================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+}
+
+/* ================================================================
+   SLIDER  —  4 screens side-by-side, each 100vw wide
+================================================================ */
+#slider-wrapper {
+  display: flex;
+  width: 400vw;
+  height: 100vh;
+  transition: transform 0.55s cubic-bezier(0.77, 0, 0.175, 1);
+  will-change: transform;
+}
+
+.screen {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  align-items: stretch;
+}
+
+/* ================================================================
+   TABLE LAYOUT  —  shared across all screens
+================================================================ */
+.app-table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.app-table th,
+.app-table td {
+  border: none;
+  padding: 0;
+}
+
+.col-half { width: 50%; }
+
+/* ================================================================
+   HEADER
+================================================================ */
+.header-cell {
+  background: #1a6fca;
+  text-align: center;
+  vertical-align: middle;
+  height: 72px;
+  color: #ffffff;
+  font-size: clamp(1rem, 2.4vw, 1.55rem);
+  font-weight: bold;
+  letter-spacing: 0.3px;
+}
+
+/* ================================================================
+   FOOTER  (blue bar — full span)
+================================================================ */
+.footer-cell {
+  background: #1a6fca;
+  height: 62px;
+  vertical-align: middle;
+}
+
+.back-footer {
+  padding: 0 18px;
+}
+
+/* ================================================================
+   BACK BUTTON
+================================================================ */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: opacity 0.15s;
+}
+
+.back-btn:hover  { opacity: 0.80; }
+.back-btn:active { opacity: 0.60; }
+
+.back-arrow {
+  color: #22dd00;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.back-label {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* ================================================================
+   MAIN SCREEN  —  nav buttons
+================================================================ */
+.main-nav-row { height: calc(100vh - 134px); }   /* 72px header + 62px footer */
+
+.nav-cell {
+  text-align: center;
+  vertical-align: middle;
+  padding: 24px;
+}
+
+.nav-btn {
+  width: min(400px, 42vw);
+  height: min(300px, 36vw);
+  min-width: 150px;
+  min-height: 120px;
+  border: 3px solid #8899bb;
+  border-radius: 20px;
+  background: #eef2ff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.14);
+  transition: box-shadow 0.2s, transform 0.12s;
+}
+
+.nav-btn:hover  { box-shadow: 0 10px 30px rgba(0,0,0,0.22); transform: translateY(-3px); }
+.nav-btn:active { transform: scale(0.97); }
+
+.nav-btn-label {
+  font-size: clamp(1.1rem, 2.8vw, 2rem);
+  font-weight: bold;
+  color: #111111;
+}
+
+.nav-arrow {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1;
+}
+
+.green-arrow { color: #22bb22; }
+.red-arrow   { color: #cc1111; }
+
+/* ================================================================
+   TIMER DISPLAY BOX
+================================================================ */
+.display-cell {
+  text-align: center;
+  vertical-align: middle;
+  padding: 20px 12px 8px;
+}
+
+.timer-display {
+  position: relative;
+  display: inline-block;
+  background: #e8eeff;
+  border: 3px solid #444444;
+  border-radius: 24px;
+  padding: 28px 44px 44px;
+  min-width: min(760px, 88vw);
+  max-width: 94vw;
+  text-align: center;
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.07);
+}
+
+.time-hms {
+  display: block;
+  font-size: clamp(3rem, 9.5vw, 7rem);
+  font-weight: 400;
+  color: #111111;
+  letter-spacing: 4px;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.time-ms {
+  position: absolute;
+  right: 18px;
+  bottom: 10px;
+  font-size: clamp(0.8rem, 1.8vw, 1.05rem);
+  color: #333333;
+  letter-spacing: 2px;
+}
+
+/* ================================================================
+   ACTION BUTTONS  (Start / Pause / Continue / Clear)
+================================================================ */
+.btn-cell {
+  text-align: center;
+  vertical-align: middle;
+  padding: 14px 20px;
+}
+
+.action-btn {
+  width: min(400px, 88%);
+  height: min(200px, 19vw);
+  min-height: 64px;
+  border: none;
+  border-radius: 14px;
+  font-size: clamp(1.3rem, 3.8vw, 2.2rem);
+  font-weight: bold;
+  color: #111111;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.16);
+  transition: filter 0.15s, transform 0.1s;
+}
+
+.action-btn:hover  { filter: brightness(1.10); }
+.action-btn:active { transform: scale(0.97); }
+
+.green-btn { background: #22dd00; }
+.red-btn   { background: #dd2200; }
+.grey-btn  { background: #aaaaaa; }
+
+/* "Continue" — degraded blue (bright → dark top to bottom) */
+.continue-btn {
+  background: linear-gradient(to bottom, #55aaff 0%, #1144bb 100%) !important;
+  color: #ffffff !important;
+}
+
+/* ================================================================
+   NUMPAD  (Countdown input screen)
+================================================================ */
+.numpad-cell {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px 8px 4px;
+}
+
+.numpad-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 1px;
+  margin-bottom: 1px;
+}
+
+.num-btn {
+  width: clamp(52px, 8.8vw, 112px);
+  height: clamp(46px, 7.8vh, 90px);
+  border: none;
+  border-radius: 10px;
+  font-size: clamp(1rem, 2.4vw, 1.7rem);
+  font-weight: bold;
+  color: #111111;
+  cursor: pointer;
+  margin: 1px;
+  box-shadow: 0 2px 7px rgba(0,0,0,0.13);
+  transition: filter 0.12s, transform 0.08s;
+}
+
+.num-btn:hover  { filter: brightness(1.12); }
+.num-btn:active { transform: scale(0.95); }
+
+/* ================================================================
+   RESPONSIVE BREAKPOINTS
+================================================================ */
+@media (max-width: 640px) {
+  .header-cell { height: 54px; }
+  .footer-cell { height: 50px; }
+  .timer-display { padding: 18px 14px 30px; min-width: 72vw; }
+  .back-arrow { font-size: 1.5rem; }
+  .back-label { font-size: 0.95rem; }
+}
+
+@media (max-width: 400px) {
+  .num-btn { width: 13vw; height: 11vw; font-size: 0.82rem; margin: 1px; }
+}

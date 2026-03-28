@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stopwatch and Countdown - JRG</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div id="slider-wrapper">
+
+  <!-- ══════════════════════════════
+       SCREEN 0 — MAIN
+  ══════════════════════════════ -->
+  <div class="screen" id="screen-main">
+    <table class="app-table">
+      <colgroup><col class="col-half"><col class="col-half"></colgroup>
+      <thead>
+        <tr>
+          <th colspan="2" class="header-cell">Stopwatch and Countdown - JRG</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="main-nav-row">
+          <td class="nav-cell">
+            <button class="nav-btn" id="btn-go-stopwatch" aria-label="Go to Stopwatch">
+              <span class="nav-btn-label">Stopwatch</span>
+              <span class="nav-arrow green-arrow">&#9654;</span>
+            </button>
+          </td>
+          <td class="nav-cell">
+            <button class="nav-btn" id="btn-go-countdown" aria-label="Go to Countdown">
+              <span class="nav-btn-label">Countdown</span>
+              <span class="nav-arrow red-arrow">&#9660;</span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr><td colspan="2" class="footer-cell"></td></tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════
+       SCREEN 1 — STOPWATCH
+  ══════════════════════════════ -->
+  <div class="screen" id="screen-stopwatch">
+    <table class="app-table">
+      <colgroup><col class="col-half"><col class="col-half"></colgroup>
+      <thead>
+        <tr>
+          <th colspan="2" class="header-cell">Stopwatch and Countdown - JRG</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="2" class="display-cell">
+            <div class="timer-display">
+              <span class="time-hms" id="sw-hms">00:00:00</span>
+              <span class="time-ms"  id="sw-ms">000</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="btn-cell">
+            <button class="action-btn green-btn" id="sw-start-btn">Start</button>
+          </td>
+          <td class="btn-cell">
+            <button class="action-btn red-btn" id="sw-clear-btn">Clear</button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2" class="footer-cell back-footer">
+            <button class="back-btn" id="btn-back-sw" aria-label="Back to Main">
+              <span class="back-arrow">&#9664;</span>
+              <span class="back-label">Back</span>
+            </button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════
+       SCREEN 2 — COUNTDOWN INPUT
+  ══════════════════════════════ -->
+  <div class="screen" id="screen-countdown">
+    <table class="app-table">
+      <colgroup><col style="width:100%"></colgroup>
+      <thead>
+        <tr>
+          <th colspan="2" class="header-cell">Stopwatch and Countdown - JRG</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="2" class="display-cell">
+            <div class="timer-display">
+              <span class="time-hms" id="cd-hms">00:00:00</span>
+              <span class="time-ms"  id="cd-ms">000</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" class="numpad-cell">
+            <div class="numpad-row">
+              <button class="num-btn green-btn" data-digit="5">5</button>
+              <button class="num-btn green-btn" data-digit="6">6</button>
+              <button class="num-btn green-btn" data-digit="7">7</button>
+              <button class="num-btn green-btn" data-digit="8">8</button>
+              <button class="num-btn green-btn" data-digit="9">9</button>
+              <button class="num-btn green-btn" id="cd-set-btn">Set</button>
+            </div>
+            <div class="numpad-row">
+              <button class="num-btn green-btn" data-digit="0">0</button>
+              <button class="num-btn green-btn" data-digit="1">1</button>
+              <button class="num-btn green-btn" data-digit="2">2</button>
+              <button class="num-btn green-btn" data-digit="3">3</button>
+              <button class="num-btn green-btn" data-digit="4">4</button>
+              <button class="num-btn grey-btn"  id="cd-clear-btn">Clear</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2" class="footer-cell back-footer">
+            <button class="back-btn" id="btn-back-cd" aria-label="Back to Main">
+              <span class="back-arrow">&#9664;</span>
+              <span class="back-label">Back</span>
+            </button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════
+       SCREEN 3 — COUNTDOWN RUN
+  ══════════════════════════════ -->
+  <div class="screen" id="screen-countdown-run">
+    <table class="app-table">
+      <colgroup><col class="col-half"><col class="col-half"></colgroup>
+      <thead>
+        <tr>
+          <th colspan="2" class="header-cell">Stopwatch and Countdown - JRG</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="2" class="display-cell">
+            <div class="timer-display">
+              <span class="time-hms" id="cdr-hms">00:00:00</span>
+              <span class="time-ms"  id="cdr-ms">000</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="btn-cell">
+            <button class="action-btn green-btn" id="cdr-start-btn">Start</button>
+          </td>
+          <td class="btn-cell">
+            <button class="action-btn red-btn" id="cdr-clear-btn">Clear</button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2" class="footer-cell back-footer">
+            <button class="back-btn" id="btn-back-cdr" aria-label="Back to Countdown">
+              <span class="back-arrow">&#9664;</span>
+              <span class="back-label">Back</span>
+            </button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+</div><!-- /#slider-wrapper -->
+
+<script src="script.js"></script>
+</body>
+</html>
